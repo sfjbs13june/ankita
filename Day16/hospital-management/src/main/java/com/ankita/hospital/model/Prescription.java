@@ -1,21 +1,26 @@
 package com.ankita.hospital.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Prescription {
-    String prescriptionId;
-    String appointmentId;
-    String description;
-    String patientName;
-    String doctorName;
 
-    public Prescription(String prescriptionId , String appointmentId , String description, String patientName, String doctorName) {
+    @Id
+    private String prescriptionId;
+    private String appointmentId;
+    private String description;
+    private String patientName;
+    private String doctorName;
+
+    public Prescription(){}
+
+    public Prescription(String prescriptionId, String appointmentId, String description, String patientName, String doctorName) {
         this.prescriptionId = prescriptionId;
-        this.appointmentId=appointmentId;
-        this.description=description;
-        this.patientName=patientName;
-        this.doctorName=doctorName;
+        this.appointmentId = appointmentId;
+        this.description = description;
+        this.patientName = patientName;
+        this.doctorName = doctorName;
     }
 
     public String getPrescriptionId() {
@@ -30,24 +35,16 @@ public class Prescription {
         return appointmentId;
     }
 
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setAppointmentId(String appointmentId) {
-        this.appointmentId = appointmentId;
-    }
-
-    public String getDoctorName() {
-        return doctorName;
-    }
-
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
     }
 
     public String getPatientName() {
@@ -58,4 +55,11 @@ public class Prescription {
         this.patientName = patientName;
     }
 
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
 }
